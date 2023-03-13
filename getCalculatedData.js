@@ -3,24 +3,23 @@ const getCalculatedData = express.Router();
 
 import data from './users.json' assert { type: 'json' };
 
-var overWeighCount =0;
 getCalculatedData.get('/', (req, res, next) => {
     
     
-    const dataLength = data.length;
+    const dataLength = data.length
     for (var i = 0; i < dataLength; i++) { 
         
-        let [bmiValue, BMICategory, healthRisk, overWeighCount]  = getBMIValue(data[i], overWeighCount)
+        let [bmiValue, BMICategory, healthRisk]  = getBMIValue(data[i])
         
         data[i]["bmiValue"] = bmiValue;
         data[i]["BMICategory"] = BMICategory;
         data[i]["healthRisk"] = healthRisk;
-        data[i]["overWeighCount"] = overWeighCount;
+        //data[i]["overWeighCount"] = overWeighCount;
     }
     res.send(data)
 });
 
-const getBMIValue = (user, overWeighCount) => {
+const getBMIValue = (user) => {
     let heightMeters = user.HeightCm/100;
     var bmiValue = user.WeightKg/(heightMeters*heightMeters);
     var healthRisk;
@@ -37,8 +36,6 @@ const getBMIValue = (user, overWeighCount) => {
     else if (bmiValue >= 25 && bmiValue <= 29.9){
         BMICategory = "Overweight";
         healthRisk ="Enhanced risk"
-        overWeighCount++
-        console.log(overWeighCount)
     }
     else if (bmiValue >= 30 && bmiValue <= 34.9){
         BMICategory = "Moderately obese";
@@ -52,7 +49,7 @@ const getBMIValue = (user, overWeighCount) => {
         BMICategory = "Very severely obese";
         healthRisk ="Very high risk"
     }
-    return [bmiValue, BMICategory, healthRisk, overWeighCount];
+    return [bmiValue, BMICategory, healthRisk];
 }
 
 export default getCalculatedData;
