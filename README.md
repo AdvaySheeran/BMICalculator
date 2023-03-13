@@ -1,5 +1,7 @@
 # BMICalculator
 Based on the available user data, calculate BMI and send along with user details as API response
-Clone the app and use 'npm install'
-After installing use node app.js
-Check the broweser http://localhost:<Your Port>/getCalculatedData
+  <ul>
+  <li>Clone the app and use 'npm install' </li>
+  <li>After installing npm modules, use node app.js </li>
+  <li>Check the broweser http://localhost:3000/getCalculatedData</li>
+</ul>
