@@ -21,6 +21,7 @@ getCalculatedData.get('/', (req, res, next) => {
 const getBMIValue = (user) => {
     let heightMeters = user.HeightCm/100;
     var bmiValue = user.WeightKg/(heightMeters*heightMeters);
+    bmiValue = Math.round((bmiValue + Number.EPSILON) * 100) / 100
     var healthRisk;
     var BMICategory;
 
