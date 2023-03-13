@@ -1,6 +1,6 @@
 import express from 'express';
 const app = express();
-import getCalculatedData from './getCalculatedData.js';
+import getCalculatedData from './controllers/getCalculatedData.js';
 
 app.use('/getCalculatedData', getCalculatedData);
 

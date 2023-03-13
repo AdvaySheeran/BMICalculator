@@ -1,7 +1,7 @@
 import express from 'express';
 const getCalculatedData = express.Router();
 var overWeightCount = 0;
-import data from './users.json' assert { type: 'json' };
+import data from '../database/users.json' assert { type: 'json' };
 
 getCalculatedData.get('/', (req, res, next) => {
     
