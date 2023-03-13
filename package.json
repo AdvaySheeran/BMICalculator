@@ -1,0 +1,24 @@
+{
+  "name": "bmicalculator",
+  "version": "1.0.0",
+  "description": "Based on the available user data, calculate BMI and send along with user details as API response",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdvaySheeran/BMICalculator.git"
+  },
+  "keywords": [],
+  "author": "Sampath",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AdvaySheeran/BMICalculator/issues"
+  },
+  "homepage": "https://github.com/AdvaySheeran/BMICalculator#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
