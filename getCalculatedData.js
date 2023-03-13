@@ -1,10 +1,9 @@
 import express from 'express';
 const getCalculatedData = express.Router();
-
+var overWeightCount = 0;
 import data from './users.json' assert { type: 'json' };
 
 getCalculatedData.get('/', (req, res, next) => {
-    
     
     const dataLength = data.length
     for (var i = 0; i < dataLength; i++) { 
@@ -14,9 +13,9 @@ getCalculatedData.get('/', (req, res, next) => {
         data[i]["bmiValue"] = bmiValue;
         data[i]["BMICategory"] = BMICategory;
         data[i]["healthRisk"] = healthRisk;
-        //data[i]["overWeighCount"] = overWeighCount;
     }
-    res.send(data)
+     
+    res.send({data : data, overWeight :overWeightCount })
 });
 
 const getBMIValue = (user) => {
@@ -36,6 +35,7 @@ const getBMIValue = (user) => {
     else if (bmiValue >= 25 && bmiValue <= 29.9){
         BMICategory = "Overweight";
         healthRisk ="Enhanced risk"
+        overWeightCount++;
     }
     else if (bmiValue >= 30 && bmiValue <= 34.9){
         BMICategory = "Moderately obese";
