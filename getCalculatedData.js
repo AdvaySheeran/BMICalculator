@@ -15,7 +15,8 @@ getCalculatedData.get('/', (req, res, next) => {
         data[i]["healthRisk"] = healthRisk;
     }
      
-    res.send({data : data, overWeight :overWeightCount })
+    res.send({data : data, overWeight :overWeightCount });
+    overWeightCount = 0;
 });
 
 const getBMIValue = (user) => {
